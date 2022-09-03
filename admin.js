@@ -178,16 +178,31 @@ const getProductsFromDB = async () => {
   }
 };
 
+function logFile (event) {
+	let str = event.target.result;
+	console.log(str);
+  return itemImage;
+}
+
 //need to create a form, from which we will take the data of the new product
-const onClickAddNewProductEventHandler = async (itemImage) => {
-  let formData = new FormData();
-  
-  formData.append("file", fileupload.files[0]);
-  await fetch("/upload.php", {
-    method: "POST",
-    body: formData,
-  });
-  alert("The file has been uploaded successfully.");
+const onClickAddNewProductEventHandler = async () => {
+
+  let reader = new FileReader();
+
+	// Setup the callback event to run when the file is read
+	reader.onload = logFile;
+
+	// Read the file
+	reader.readAsDataURL(file.files[0]);
+
+
+  // let formData = new FormData(); 
+  // formData.append("file", fileupload.files[0]);
+  // await fetch("/upload.php", {
+  //   method: "POST",
+  //   body: formData,
+  // });
+  // alert("The file has been uploaded successfully.");
 
   const itemName = document.getElementById("itemName").value;
   const itemPrice = document.getElementById("itemPrice").value;

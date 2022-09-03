@@ -28,7 +28,9 @@
             <input type="text" id="itemPrice">
             <label for="productname">Image:</label>
             <!-- <input type="text" id="itemImage"> -->
-            <input id="fileupload" type="file" name="fileupload" />
+            <!-- <input id="fileupload" type="file" name="fileupload" /> -->
+            <label for="file">File to upload</label>
+            <input type="file" id="file" accept="image/*">
             <input id="upload-button" type="button" value="Add Product" onclick='onClickAddNewProductEventHandler()'>
         </form>
         <table id="productsTable">
